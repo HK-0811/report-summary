@@ -1,0 +1,14 @@
+faiss-cpu==1.8.0.post1
+huggingface-hub==0.23.4
+langchain==0.2.7
+langchain-community==0.2.7
+langchain-core==0.2.18
+langchain-huggingface==0.0.3
+langchain-text-splitters==0.2.2
+langsmith==0.1.85
+pandas==2.2.2
+pillow==10.4.0
+PyMuPDF==1.24.7
+python-dotenv==1.0.1
+sentence-transformers
+transformers==4.42.4
