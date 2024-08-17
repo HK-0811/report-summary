@@ -22,7 +22,7 @@ cd report-summary
 ```pip install -r requirements.txt```
 
 4.  **Run the Streamlit app**:
-```streamlit run app.py```
+```streamlit run src/report.py```
 
 ## Dependencies
 - **Streamlit**: For building the web interface.
