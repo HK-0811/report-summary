@@ -9,6 +9,7 @@ langsmith==0.1.85
 pandas==2.2.2
 pillow==10.4.0
 PyMuPDF==1.24.7
+pytesseract==0.3.13
 python-dotenv==1.0.1
 sentence-transformers
 transformers==4.42.4

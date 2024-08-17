@@ -1,6 +1,8 @@
 import streamlit as st
 from dotenv import load_dotenv
 import  fitz  # PyMuPDF
+import pytesseract
+from PIL import Image
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEndpoint,HuggingFaceEmbeddings
 from langchain_core.prompts import PromptTemplate
@@ -8,9 +10,17 @@ from langchain.chains.summarize import load_summarize_chain
 from langchain_community.vectorstores import FAISS
 from langchain_core.vectorstores import VectorStoreRetriever
 from langchain.chains.retrieval_qa.base import RetrievalQA
-import time
+
 
 load_dotenv()
+
+def extract_text_from_image(image):
+    text = pytesseract.image_to_string(image)
+    print(text) 
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size = 1000,chunk_overlap=20)
+    chunks = text_splitter.create_documents([text])
+
+    return chunks
 
 def extract_text_from_pdf(pdf_file):
 
@@ -66,18 +76,29 @@ uploaded_file = st.file_uploader("Add Your Report Here :",type=["jpg","jpeg","pd
 
 if uploaded_file is not None :
 
-    if "chunks" not in st.session_state:
-        st.session_state.chunks = extract_text_from_pdf(uploaded_file)
-    if "vec_store" not in st.session_state:
-        st.session_state.vec_str = vector_store(st.session_state.chunks)
+    file_extension = uploaded_file.name.split(".")[-1].lower()
     
+    if file_extension == "pdf":
+        if "chunks" not in st.session_state:
+            st.session_state.chunks = extract_text_from_pdf(uploaded_file)
+        if "vec_store" not in st.session_state:
+            st.session_state.vec_store = vector_store(st.session_state.chunks)
+
+    elif file_extension in ["jpg", "jpeg"]:
+        image = Image.open(uploaded_file)
+        if "chunks" not in st.session_state:
+            st.session_state.chunks = extract_text_from_image(image)
+        if "vec_store" not in st.session_state:
+            st.session_state.vec_store = vector_store(st.session_state.chunks)
+
 
     with st.sidebar:
         st.header("Summary : ")
         if st.button("Summarize Report"):
             st.session_state.summary = generate_summary(st.session_state.chunks)
+            st.write(st.session_state.summary)
         if "summary" in st.session_state:
-            st.text(st.session_state.summary)    
+            st.write(st.session_state.summary)    
 
 
     question = st.chat_input("Ask About Report ")
