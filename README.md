@@ -14,13 +14,14 @@ This Streamlit application is designed to assist in the analysis and diagnosis o
 
 ## Installation
 1. **Clone the repository**:
-```git clone https://github.com/HK-0811/report-summary.git
-  cd report-summary
 ```
-2.  **Install the required packages**:
+git clone https://github.com/HK-0811/report-summary.git 
+cd report-summary
+```
+3.  **Install the required packages**:
 pip install -r requirements.txt
 
-3.  **Run the Streamlit app**:
+4.  **Run the Streamlit app**:
 streamlit run app.py
 
 ## Dependencies
