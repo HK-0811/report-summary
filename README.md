@@ -26,20 +26,29 @@ This Streamlit application is designed to assist in the analysis and diagnosis o
 
 
 ## Installation
-1. ** Clone the repository **:
-git clone https://github.com/yourusername/medical-report-diagnosis.git
-cd medical-report-diagnosis
+1. **Clone the repository**:
+git clone https://github.com/HK-0811/report-summary.git
+cd report-summary
 
-2.  ** Install the required packages **:
+2.  **Install the required packages**:
 pip install -r requirements.txt
 
-3.  ** Run the Streamlit app **:
+3.  **Run the Streamlit app**:
 streamlit run app.py
 
+## Dependencies
+- Streamlit: For building the web interface.
+= easyocr: For OCR processing of images.
+- PyMuPDF: For text extraction from PDF files.
+- LangChain: For text splitting and summarization.
+- FAISS: For vector-based information retrieval.
+- Hugging Face: For accessing the language models.
 
 
-
-
+## Usage
+- Upload a Report: Drag and drop a medical report in JPG, JPEG, or PDF format.
+- Generate Summary: Click on "Summarize Report" in the sidebar to generate a concise summary of the report.
+- Ask Questions: Use the chat interface to ask specific questions about the report's content.
 
 
 
