@@ -6,8 +6,8 @@ This Streamlit application is designed to assist in the analysis and diagnosis o
 ### Features
 - File Upload: Supports uploading medical reports in JPG, JPEG, and PDF formats.
 - Text Extraction:
-  -- For JPG/JPEG files: Optical Character Recognition (OCR) is performed using easyocr to extract text from the images.
-  -- For PDF files: Text is directly extracted using PyMuPDF.
+  - For JPG/JPEG files: Optical Character Recognition (OCR) is performed using easyocr to extract text from the images.
+  - For PDF files: Text is directly extracted using PyMuPDF.
 - Text Summarization: Utilizes the meta-llama/Meta-Llama-3-8B-Instruct language model from Hugging Face to generate concise summaries of the extracted text.
 - Question-Answer Interface: Allows users to interact with the summarized report by asking specific questions. The app uses a FAISS vector store to retrieve relevant information from the text and provide accurate answers.
 
