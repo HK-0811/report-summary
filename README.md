@@ -25,3 +25,29 @@ This Streamlit application is designed to assist in the analysis and diagnosis o
    - Users can type questions about the report, and the app retrieves the most relevant information to provide a concise answer.
 
 
+## Installation
+1. ** Clone the repository **:
+git clone https://github.com/yourusername/medical-report-diagnosis.git
+cd medical-report-diagnosis
+
+2.  ** Install the required packages **:
+pip install -r requirements.txt
+
+3.  ** Run the Streamlit app **:
+streamlit run app.py
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
