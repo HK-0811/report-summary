@@ -19,10 +19,10 @@ git clone https://github.com/HK-0811/report-summary.git
 cd report-summary
 ```
 3.  **Install the required packages**:
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 4.  **Run the Streamlit app**:
-streamlit run app.py
+```streamlit run app.py```
 
 ## Dependencies
 - **Streamlit**: For building the web interface.
