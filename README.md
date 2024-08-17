@@ -38,7 +38,7 @@ streamlit run app.py
 
 ## Dependencies
 - Streamlit: For building the web interface.
-= easyocr: For OCR processing of images.
+- easyocr: For OCR processing of images.
 - PyMuPDF: For text extraction from PDF files.
 - LangChain: For text splitting and summarization.
 - FAISS: For vector-based information retrieval.
