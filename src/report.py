@@ -1,7 +1,7 @@
 import streamlit as st
 from dotenv import load_dotenv
 import  fitz  # PyMuPDF
-import pytesseract
+import easyocr
 from PIL import Image
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEndpoint,HuggingFaceEmbeddings
@@ -15,8 +15,9 @@ from langchain.chains.retrieval_qa.base import RetrievalQA
 load_dotenv()
 
 def extract_text_from_image(image):
-    text = pytesseract.image_to_string(image)
-    print(text) 
+    reader = easyocr.Reader(['en'])
+    result = reader.readtext(image, detail=0)
+    text =  "\n".join(result)
     text_splitter = RecursiveCharacterTextSplitter(chunk_size = 1000,chunk_overlap=20)
     chunks = text_splitter.create_documents([text])
 
